@@ -1,4 +1,10 @@
 import "./globals.css";
+import "./styles/style.scss";
+
+export const metadata = {
+  title: "EasyTech",
+  description: "IT and Payment Solutions",
+};
 
 export default function RootLayout({
   children,
@@ -7,7 +13,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body suppressHydrationWarning={false}>{children}</body>
     </html>
   );
 }
