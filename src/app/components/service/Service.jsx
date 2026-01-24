@@ -6,6 +6,7 @@ import { useInView } from "framer-motion";
 const Service = ({data, key}) => {
   const ref = useRef(null);
   const isInView = useInView(ref, {once: true})
+  console.log(data);
   return (
     <section className="service-block lg:mt-[100px] sm:mt-16 mt-10 mb-6" ref={ref}>
       <div className="container">
