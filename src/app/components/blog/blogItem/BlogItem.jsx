@@ -13,8 +13,9 @@ const BlogItem = ({data}) => {
         >
           <div className="bg-img w-full overflow-hidden">
             <Image
-              width={5000}
-              height={5000}
+              width={800}
+              height={600}
+              loading="lazy"
               className="w-full h-full block"
               src={data.img}
               alt={data.title}
