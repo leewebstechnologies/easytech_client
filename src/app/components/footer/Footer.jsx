@@ -2,8 +2,28 @@
 import Image from "next/image";
 import Link from "next/link";
 import * as Icon from "@phosphor-icons/react/dist/ssr";
+import { useState, useEffect } from "react";
+import { API_BASE_URL } from "@/config/config";
 
 const Footer = () => {
+   const [footer, setFooter] = useState([]);
+    const [loading, setLoading] = useState(true);
+    console.log(footer);
+  
+    useEffect(() => {
+      const fetchItem = async () => {
+        try {
+          const response = await fetch(`${API_BASE_URL}/sitesetting`);
+          const data = await response.json();
+          setFooter(data);
+        } catch (error) {
+          console.error("Error fetching data", error);
+        } finally {
+          setLoading(false);
+        }
+      };
+      fetchItem();
+    }, []);
   return (
     <div className="footer-block bg-[#0f1e33] pt-[60px]">
       <div className="container">
@@ -18,50 +38,60 @@ const Footer = () => {
                 alt="logoWhite"
               />
               <div className="text caption1 text-white">
-                The jobs report soundly beat expectations, with job gains
-                broadly spread across the economy and about 60% higher
+                {footer.footer_message}
               </div>
 
               <div className="list-social flex items-center gap-2">
-                <Link
-                  className="item rounded-full w-7 h-7 border-2 border-gray flex items-center justify-center"
-                  href="https://facebook.com"
-                  target="_blank"
-                >
-                  <i className="icon-facebook text-sm"></i>
-                </Link>
+                {footer.facebook && (
+                  <Link
+                    className="item rounded-full w-7 h-7 border-grey border-2 flex items-center justify-center"
+                    href={footer.facebook}
+                    target="_blank"
+                  >
+                    <i className="icon-facebook text-sm"></i>
+                  </Link>
+                )}
 
-                <Link
-                  className="item rounded-full w-7 h-7 border-2 border-gray flex items-center justify-center"
-                  href="https://linkedin.com"
-                  target="_blank"
-                >
-                  <i className="icon-in text-xs"></i>
-                </Link>
+                {footer.linkedin && (
+                  <Link
+                    className="item rounded-full w-7 h-7 border-grey border-2 flex items-center justify-center"
+                    href={footer.linkedin}
+                    target="_blank"
+                  >
+                    <i className="icon-in text-sm"></i>
+                  </Link>
+                )}
 
-                <Link
-                  className="item rounded-full w-7 h-7 border-2 border-gray flex items-center justify-center"
-                  href="https://twitter.com"
-                  target="_blank"
-                >
-                  <i className="icon-twitter text-xs"></i>
-                </Link>
+                {footer.twitter && (
+                  <Link
+                    className="item rounded-full w-7 h-7 border-grey border-2 flex items-center justify-center"
+                    href={footer.twitter}
+                    target="_blank"
+                  >
+                    <i className="icon-twitter text-[10px]"></i>
+                  </Link>
+                )}
 
-                <Link
-                  className="item rounded-full w-7 h-7 border-2 border-gray flex items-center justify-center"
-                  href="https://twitter.com"
-                  target="_blank"
-                >
-                  <i className="icon-insta text-xs"></i>
-                </Link>
+                {footer.instagram && (
+                  <Link
+                    className="item rounded-full w-7 h-7 border-grey border-2 flex items-center justify-center"
+                    href={footer.instagram}
+                    target="_blank"
+                  >
+                    <i className="icon-insta text-[10px]"></i>
+                  </Link>
+                )}
 
-                <Link
-                  className="item rounded-full w-7 h-7 border-2 border-gray flex items-center justify-center"
-                  href="https://youtube.com"
-                  target="_blank"
-                >
-                  <i className="icon-youtube text-xs"></i>
-                </Link>
+                {footer.youtube && (
+                  <Link
+                    className="item rounded-full w-7 h-7 border-grey border-2 flex items-center justify-center"
+                    href={footer.youtube}
+                    target="_blank"
+                  >
+                    <i className="icon-youtube text-[10px]"></i>
+                  </Link>
+                )}
+
               </div>
             </div>
           </div>
@@ -200,13 +230,13 @@ const Footer = () => {
                   <div className="cpation2 text-surface text-white">
                     Need Help? 24/7
                   </div>
-                  <div className="fw-700 text-white mt-1">01603 561735</div>
+                  <div className="fw-700 text-white mt-1">{footer.phone}</div>
                 </div>
               </div>
 
               <div className="locate mt-3 flex items-center">
                 <div className="caption1 text-surface text-white">
-                  67, Ferriby Road, Hessle, United Kingdom.
+                  {footer.address}
                 </div>
               </div>
 
@@ -228,7 +258,7 @@ const Footer = () => {
         <div className="footer-bottom flex items-center justify-between pt-3 pb-3">
           <div className="left-block flex items-center">
             <div className="copy-right text-surface caption1 text-white">
-              @2024 EasyTech. All Rights Reserved
+              @2026 EasyTech. All Rights Reserved
             </div>
           </div>
 

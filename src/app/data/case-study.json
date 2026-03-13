@@ -14,7 +14,7 @@
             "clientSize": "50 employees",
             "investment": "$250K+ AUM"
         },
-        "img": "/images/blog/930x593.png"
+        "img": "/images/blog/money.png"
     },
     {
         "id": 2,
@@ -31,7 +31,7 @@
             "clientSize": "Individual (HNI)",
             "investment": "$8.5M AUM"
         },
-        "img": "/images/blog/930x593.png"
+        "img": "/images/blog/money.png"
     },
     {
         "id": 3,
@@ -48,7 +48,7 @@
             "clientSize": "Family Office (50+ beneficiaries)",
             "investment": "$45M business value"
         },
-        "img": "/images/blog/930x593.png"
+        "img": "/images/blog/money.png"
     },
     {
         "id": 4,
@@ -65,7 +65,7 @@
             "clientSize": "2,000 employees",
             "investment": "Multi-currency, $500M+ annual spend"
         },
-        "img": "/images/blog/930x593.png"
+        "img": "/images/blog/money.png"
     },
     {
         "id": 41,
@@ -82,7 +82,7 @@
             "clientSize": "Startup (50 team members)",
             "investment": "$150M transaction volume"
         },
-        "img": "/images/blog/930x593.png"
+        "img": "/images/blog/money.png"
     },
     {
         "id": 42,
@@ -99,7 +99,7 @@
             "clientSize": "Fintech Platform (500+ end customers)",
             "investment": "$10M+ transaction volume monthly"
         },
-        "img": "/images/blog/930x593.png"
+        "img": "/images/blog/money.png"
     },
     {
         "id": 5,
@@ -116,7 +116,7 @@
             "clientSize": "Advisory Firm (800+ clients)",
             "investment": "$3.8B AUM"
         },
-        "img": "/images/blog/930x593.png"
+        "img": "/images/blog/money.png"
     },
     {
         "id": 6,
@@ -133,7 +133,7 @@
             "clientSize": "Consumer Fintech (250K users)",
             "investment": "$3.75B total AUM"
         },
-        "img": "/images/blog/930x593.png"
+        "img": "/images/blog/money.png"
     },
     {
         "id": 7,
@@ -150,7 +150,7 @@
             "clientSize": "Trading Platform (50K users)",
             "investment": "$2B+ monthly trading volume"
         },
-        "img": "/images/blog/930x593.png"
+        "img": "/images/blog/money.png"
     },
     {
         "id": 8,
@@ -167,7 +167,7 @@
             "clientSize": "Fortune 500 Company",
             "investment": "$500M+ crypto treasury"
         },
-        "img": "/images/blog/930x593.png"
+        "img": "/images/blog/money.png"
     },
     {
         "id": 81,
@@ -184,7 +184,7 @@
             "clientSize": "Professional Traders (30 partners)",
             "investment": "$150M trading capital"
         },
-        "img": "/images/blog/930x593.png"
+        "img": "/images/blog/money.png"
     },
     {
         "id": 82,
@@ -201,7 +201,7 @@
             "clientSize": "DeFi Protocol (2M users)",
             "investment": "$450M TVL"
         },
-        "img": "/images/blog/930x593.png"
+        "img": "/images/blog/money.png"
     },
     {
         "id": 9,
@@ -218,7 +218,7 @@
             "clientSize": "Global Enterprise (500+ partners)",
             "investment": "$3B annual supply chain value"
         },
-        "img": "/images/blog/930x593.png"
+        "img": "/images/blog/money.png"
     },
     {
         "id": 91,
@@ -235,7 +235,7 @@
             "clientSize": "HealthTech Enterprise (10K providers)",
             "investment": "$5B annual payment volume"
         },
-        "img": "/images/blog/930x593.png"
+        "img": "/images/blog/money.png"
     },
     {
         "id": 92,
@@ -252,7 +252,7 @@
             "clientSize": "Trade Finance Platform (15K SMEs)",
             "investment": "$8B annual trade volume"
         },
-        "img": "/images/blog/930x593.png"
+        "img": "/images/blog/money.png"
     },
     {
         "id": 11,
@@ -269,7 +269,7 @@
             "clientSize": "Wealth Firm (300 families)",
             "investment": "$1.4B AUM"
         },
-        "img": "/images/blog/930x593.png"
+        "img": "/images/blog/money.png"
     },
     {
         "id": 12,
@@ -286,7 +286,7 @@
             "clientSize": "Family Office (35 members)",
             "investment": "$200M family assets"
         },
-        "img": "/images/blog/930x593.png"
+        "img": "/images/blog/money.png"
     },
     {
         "id": 13,
@@ -303,7 +303,7 @@
             "clientSize": "Consumer Fintech (100K+ users)",
             "investment": "$100M+ planned assets"
         },
-        "img": "/images/blog/930x593.png"
+        "img": "/images/blog/money.png"
     },
     {
         "id": 14,
@@ -320,6 +320,6 @@
             "clientSize": "Enterprise (5K+ employees)",
             "investment": "Multi-billion dollar organization"
         },
-        "img": "/images/blog/930x593.png"
+        "img": "/images/blog/money.png"
     }
 ]

@@ -1,19 +1,39 @@
 "use client";
-import { useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { useInView } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import * as Icon from "@phosphor-icons/react/dist/ssr";
+import { API_BASE_URL, IMAGE_BASE_URL } from "@/config/config";
 
 const PaymentGateway = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
+  
+  const [gatewayone, setGatewayone] = useState([]);
+  const [loading, setLoading] = useState(true);
+    // console.log(gatewayone);
+  
+    useEffect(() => {
+      const fetchItem = async () => {
+        try {
+          const response = await fetch(`${API_BASE_URL}/gatewayone`);
+          const data = await response.json();
+          setGatewayone(data);
+        } catch (error) {
+          console.error('Error fetching data', error);
+        } finally {
+          setLoading(false);
+        }
+      };
+      fetchItem();
+    }, []);
   return (
     <>
       <section className="payment-gateway-one style-first lg:mt-[100px] sm:mt-16 mt-10 bg-surface relative bg-slate-300">
         <div className="bg-img lg:absolute top-0 left-0 lg:w-1/2 w-full h-full flex-shrink-0">
           <Image
-            src="/images/gateway1.webp"
+            src={`${IMAGE_BASE_URL}/${gatewayone.image}`}
             width={5000}
             height={5000}
             alt="img"
@@ -51,13 +71,9 @@ const PaymentGateway = () => {
                 </div>
               </div>
               <div className="text lg:mt-14 mt-5">
-                <h3 className="heading3">Payment Gateway Services</h3>
+                <h3 className="heading3">{gatewayone.title}</h3>
                 <div className="body3 text-secondary lg:mt-6 mt-4">
-                  Get personalized financial advice to help reach your financial
-                  goals. We provide reliable and secure payment gateway services
-                  for business of all sizes. With our cutting-edge technology
-                  and 24/7 customer support, you can easily accept payments from
-                  customers all over the world.
+                  {gatewayone.description}
                 </div>
               </div>
               <div className="button-block flex items-center max-sm:flex-wrap sm:gap-6 gap-3 lg:mt-12 mt-8 w-fit">
@@ -73,7 +89,9 @@ const PaymentGateway = () => {
                     href="/"
                   >
                     <Icon.PhoneIcon weight="fill" className="text-xl" />
-                    <span className="whitespace no-wrap">01603 561735</span>
+                    <span className="whitespace no-wrap">
+                      {gatewayone.phone}
+                    </span>
                   </Link>
                   <Image
                     src="/images/component/gateway1-dot.png"

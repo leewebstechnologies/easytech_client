@@ -1,4 +1,5 @@
 "use client";
+import { useState } from "react";
 import Menu from "../components/header/menu/Menu";
 import Topnav from "../components/header/topnav/Topnav";
 import Breadcrumb from '../components/section/Breadcrumb';
@@ -10,8 +11,66 @@ import serviceData from "../data/service.json";
 import Image from "next/image";
 import * as Icon from "@phosphor-icons/react/dist/ssr";
 import Link from "next/link";
+import { API_BASE_URL } from "@/config/config";
 
 const Contact = () => {
+   const [formData, setFormData] = useState({
+     name: "",
+     subject: "",
+     email: "",     
+     message: "",
+   });
+   console.log(formData);
+
+   const [isSubmitting, setIsSubmitting] = useState(false);
+   const [successMessage, setSuccessMessage] = useState("");
+   const [errorMessage, setErrorMessage] = useState("");
+
+   const handleChange = (e) => {
+     const { name, value } = e.target;
+     setFormData({
+       ...formData,
+       [name]: value,
+     });
+   };
+
+   const handleSubmit = async (e) => {
+     e.preventDefault();
+     setIsSubmitting(true);
+     setSuccessMessage("");
+     setErrorMessage("");
+
+     try {
+       const response = await fetch(`${API_BASE_URL}/contact`, {
+         method: "POST",
+         headers: {
+           "Content-Type": "application/json",
+         },
+         body: JSON.stringify(formData),
+       });
+
+       if (!response.ok) {
+         const errorData = await response.json();
+         throw new Error(
+           errorData.error
+             ? JSON.stringify(errorData.errors)
+             : "Something went wrong",
+         );
+       }
+
+       setSuccessMessage("Your message has been sent successfully!");
+       setFormData({
+         name: "",
+         subject: "",
+         email: "",        
+         message: "",
+       });
+     } catch (error) {
+       setErrorMessage("Failed to send message. Please try again later.");
+     } finally {
+       setIsSubmitting(false);
+     }
+   };
   return (
     <div className="overflow-x-hidden">
       <header id="header">
@@ -127,13 +186,22 @@ const Contact = () => {
               </div>
 
               <div className="w-full xl:w-3/5 xl:pl-20">
-                <form className="form-block flex flex-col justify-between gap-5">
+                <form
+                  className="form-block flex flex-col justify-between gap-5"
+                  onSubmit={handleSubmit}
+                >
                   <div className="heading">
                     <div className="heading5">Request a message</div>
                     <div className="body3 text-secondary mt-2">
                       We will get back to you within 24 hours
                     </div>
                   </div>
+                  {successMessage && (
+                    <p className="text-green-800">{successMessage}</p>
+                  )}
+                  {errorMessage && (
+                    <p className="text-red-800">{errorMessage}</p>
+                  )}
 
                   <div className="grid sm:grid-cols-2 gap-5">
                     <div className="w-full">
@@ -142,6 +210,8 @@ const Contact = () => {
                         name="name"
                         placeholder="Name"
                         className="w-full bg-slate-100 text-secondary caption1 px-4 py-3 rounded-lg"
+                        value={formData.name}
+                        onChange={handleChange}
                       />
                     </div>
 
@@ -151,6 +221,8 @@ const Contact = () => {
                         name="subject"
                         placeholder="Subject"
                         className="w-full bg-slate-100 text-secondary caption1 px-4 py-3 rounded-lg"
+                        value={formData.subject}
+                        onChange={handleChange}
                       />
                     </div>
 
@@ -160,6 +232,8 @@ const Contact = () => {
                         name="email"
                         placeholder="Email"
                         className="w-full bg-slate-100 text-secondary caption1 px-4 py-3 rounded-lg"
+                        value={formData.email}
+                        onChange={handleChange}
                       />
                     </div>
 
@@ -170,6 +244,8 @@ const Contact = () => {
                         rows={4}
                         placeholder="Your Message"
                         className="w-full bg-slate-100 text-secondary caption1 px-4 py-3 rounded-lg"
+                        value={formData.message}
+                        onChange={handleChange}
                       ></textarea>
                     </div>
 
@@ -177,8 +253,9 @@ const Contact = () => {
                       <button
                         type="submit"
                         className="button-main hover:border-blue-800 bg-blue-500 text-white text-button rounded-full"
+                        disabled={isSubmitting}
                       >
-                       Send Message
+                        {isSubmitting ? "Sending ..." : "Send Message"}
                       </button>
                     </div>
                   </div>

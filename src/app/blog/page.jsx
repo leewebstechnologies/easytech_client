@@ -22,7 +22,7 @@ const Blog = () => {
           title="Blog"
           desc="Discover valuable insights and expert advice on budgeting, saving, and smart financial planning through our comprehensive blog articles."
         />
-        <BlogList data={blogData} />
+        <BlogList />
       </main>
 
       <Partner className="lg:mt-[100px] sm:mt-16 mt-10" />

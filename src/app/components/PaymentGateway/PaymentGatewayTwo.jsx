@@ -1,12 +1,33 @@
 "use client";
-import { useRef } from "react";
 import { useInView } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import * as Icon from "@phosphor-icons/react/dist/ssr";
+import { useState, useRef, useEffect } from "react";
+import { API_BASE_URL, IMAGE_BASE_URL } from "@/config/config";
+
 const PaymentGatewayTwo = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
+
+  const [gatewaytwo, setGatewaytwo] = useState([]);
+    const [loading, setLoading] = useState(true);
+      // console.log(gatewaytwo);
+    
+      useEffect(() => {
+        const fetchItem = async () => {
+          try {
+            const response = await fetch(`${API_BASE_URL}/gatewaytwo`);
+            const data = await response.json();
+            setGatewaytwo(data);
+          } catch (error) {
+            console.error('Error fetching data', error);
+          } finally {
+            setLoading(false);
+          }
+        };
+        fetchItem();
+      }, []);
   return (
     <div>
       <section
@@ -16,13 +37,9 @@ const PaymentGatewayTwo = () => {
         <div className="container">
           <div className="content flex items-center gap-8">
             <div className="w-full xl:w-5/12 flex flex-col gap-y-6">
-              <h3 className="heading3">Payment Gateway Services</h3>
+              <h3 className="heading3">{gatewaytwo.title}</h3>
               <div className="body3 text-secondary">
-                Get personalized financial advice to help reach your financial
-                goals. We provide reliable and secure payment gateway services
-                for business of all sizes. With our cutting-edge technology and
-                24/7 customer support, you can easily accept payments from
-                customers all over the world.
+                {gatewaytwo.description}
               </div>
               <div className="button-block">
                 <Link
@@ -48,21 +65,24 @@ const PaymentGatewayTwo = () => {
                     width={5000}
                     height={5000}
                     className="w-full"
-                    src="/images/gateway2-bg.webp"
+                    src={`${IMAGE_BASE_URL}/${gatewaytwo.image}`}
                     alt="image"
                   />
                 </div>
                 <div className="feature-item py-4 px-6 rounded-2x1 bg-white inline-flex items-center gap-4 box-shadow">
                   <i className="icon-list text-2x1 p-4 rounded-2x1 bg-red-400"></i>
                   <div className="text">
-                    <div className="heading7">2K+</div>
+                    <div className="heading7">{gatewaytwo.project}K+</div>
                     <div className="heading7 text-secondary">Projects</div>
                   </div>
                 </div>
                 <div className="feature-item py-4 px-6 rounded-2x1 bg-white inline-flex items-center gap-4 box-shadow">
-                  <Icon.StarIcon weight="fill" className="text-yellow-600 text-3x1" />
+                  <Icon.StarIcon
+                    weight="fill"
+                    className="text-yellow-600 text-3x1"
+                  />
                   <div className="text">
-                    <div className="heading7">4.8</div>
+                    <div className="heading7">{gatewaytwo.review}</div>
                     <div className="heading7 text-secondary">Satisfaction</div>
                   </div>
                 </div>
@@ -70,8 +90,10 @@ const PaymentGatewayTwo = () => {
                 <div className="feature-item py-4 px-6 rounded-2x1 bg-white inline-flex items-center gap-4 box-shadow">
                   <i className="icon-user text-2x1 p-4 rounded-2x1 bg-red-600"></i>
                   <div className="text">
-                    <div className="heading7">6 Years</div>
-                    <div className="heading7 text-secondary">Product Designer</div>
+                    <div className="heading7">{gatewaytwo.experience} Years</div>
+                    <div className="heading7 text-secondary">
+                      Product Designer
+                    </div>
                   </div>
                 </div>
               </div>

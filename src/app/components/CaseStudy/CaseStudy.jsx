@@ -49,13 +49,13 @@ const CaseStudy = () => {
                     Experience the excitement and potential of the
                     cryptocurrency market with our expert.
                   </div>
-                  <Link className="flex items-center gap-1" href="/">
+                  {/* <Link className="flex items-center gap-1" href="/">
                     <div className="text-button text-white">Read More</div>
                     <Icon.CaretDoubleRightIcon
                       weight="bold"
                       className="text-xs text-white mt-1"
                     />
-                  </Link>
+                  </Link> */}
                 </div>
               </div>
             </div>
@@ -77,16 +77,15 @@ const CaseStudy = () => {
                     </Link>
                   </div>
                   <div className="body2 text-white">
-                    Experience the excitement and potential of the
-                    cryptocurrency market with our expert.
+                 With an experienced and skilled team, we can provide the necessary support and expertise to help your business succeed.
                   </div>
-                  <Link className="flex items-center gap-1" href="/">
+                  {/* <Link className="flex items-center gap-1" href="/">
                     <div className="text-button text-white">Read More</div>
                     <Icon.CaretDoubleRightIcon
                       weight="bold"
                       className="text-xs text-white mt-1"
                     />
-                  </Link>
+                  </Link> */}
                 </div>
               </div>
             </div>
@@ -108,16 +107,15 @@ const CaseStudy = () => {
                     </Link>
                   </div>
                   <div className="body2 text-white">
-                    Experience the excitement and potential of the
-                    cryptocurrency market with our expert.
+                   We constantly seek advanced solutions to address challenges and deliver the highest value to our customers.
                   </div>
-                  <Link className="flex items-center gap-1" href="/">
+                  {/* <Link className="flex items-center gap-1" href="/">
                     <div className="text-button text-white">Read More</div>
                     <Icon.CaretDoubleRightIcon
                       weight="bold"
                       className="text-xs text-white mt-1"
                     />
-                  </Link>
+                  </Link> */}
                 </div>
               </div>
             </div>
@@ -139,16 +137,15 @@ const CaseStudy = () => {
                     </Link>
                   </div>
                   <div className="body2 text-white">
-                    Experience the excitement and potential of the
-                    cryptocurrency market with our expert.
+                    With over 21 years of serving industrial customers and over 3000 projects, we have the experience and expertise to deliver high-quality solutions that meet our customers' needs.
                   </div>
-                  <Link className="flex items-center gap-1" href="/">
+                  {/* <Link className="flex items-center gap-1" href="/">
                     <div className="text-button text-white">Read More</div>
                     <Icon.CaretDoubleRightIcon
                       weight="bold"
                       className="text-xs text-white mt-1"
                     />
-                  </Link>
+                  </Link> */}
                 </div>
               </div>
             </div>
