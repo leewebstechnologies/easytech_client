@@ -10,7 +10,7 @@ const PaymentGateway = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
   
-  const [gatewayone, setGatewayone] = useState([]);
+  const [gatewayone, setGatewayone] = useState(null);
   const [loading, setLoading] = useState(true);
     // console.log(gatewayone);
   
@@ -28,6 +28,8 @@ const PaymentGateway = () => {
       };
       fetchItem();
     }, []);
+  if (!gatewayone) return null;
+
   return (
     <>
       <section className="payment-gateway-one style-first lg:mt-[100px] sm:mt-16 mt-10 bg-surface relative bg-slate-300">

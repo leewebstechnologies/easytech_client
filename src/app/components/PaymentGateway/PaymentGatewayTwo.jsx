@@ -10,7 +10,7 @@ const PaymentGatewayTwo = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
 
-  const [gatewaytwo, setGatewaytwo] = useState([]);
+  const [gatewaytwo, setGatewaytwo] = useState(null);
     const [loading, setLoading] = useState(true);
       // console.log(gatewaytwo);
     
@@ -28,6 +28,8 @@ const PaymentGatewayTwo = () => {
         };
         fetchItem();
       }, []);
+  if (!gatewaytwo) return null;
+
   return (
     <div>
       <section
